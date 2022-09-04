@@ -48,6 +48,18 @@ body {
   align-items: center;
   gap: 2em;
 }
+
+.container article {
+  padding: 2em;
+  max-width: 1250px;
+}
+
+svg {
+  vertical-align: middle;
+  fill: var(--sub-color);
+  height: 20px;
+}
+
 .currentTheme:hover {
   color: var(--text-color);
   cursor: pointer;
@@ -61,28 +73,18 @@ svg:hover {
   fill: var(--text-color);
 }
 
-.container article {
-  padding: 2em;
-  max-width: 1250px;
-}
-
-.mainContainer {
-  font-size: 1em;
+.wrapper {
+  align-items: start;
+  background: rgba(0, 0, 0, 0.75);
+  display: grid;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  padding: 5rem 0;
+  position: fixed;
+  top: 0;
   width: 100%;
-}
-svg {
-  vertical-align: middle;
-  fill: var(--sub-color);
-  height: 20px;
-}
-
-.mainContainer p {
-  text-transform: lowercase;
-  color: var(--sub-color);
-  font-size: 1.5em;
-  font-variant: no-common-ligatures;
-  line-height: 1em;
-  margin: 0.25em;
+  z-index: 1000;
 }
 
 .themeListContainer {
@@ -93,7 +95,6 @@ svg {
 
 .themeListContainer .themeList {
   cursor: pointer;
-  display: block;
   display: grid;
   max-height: calc(100vh - 13rem);
   overflow-y: scroll;
@@ -114,4 +115,22 @@ svg {
 
 .theme:hover {
   background-color: var(--text-color);
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--sub-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--sub-color);
+  border-radius: 2px !important;
+  transition: 0.125s;
+}
+
+::-webkit-scrollbar-track {
+  background: 0 0;
 }
