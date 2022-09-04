@@ -1,9 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import { quotes } from './services/data-svc';
+import { ReactComponent as PaletteIcon } from './palette.svg';
+import { ReactComponent as RestartIcon } from './restart.svg';
+
+const randomQuote = quotes[4].text;
 
 function App() {
   return (
-    <div className='App'>
+    <div className='container'>
+      <div>
+        <div className='currentTheme'>
+          <PaletteIcon /> <span>Tron Orange</span>
+        </div>
+        <article>
+          <p>{randomQuote}</p>
+        </article>
+        <div>
+          <RestartIcon />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+
+/*
+<div className='App'>
       <header className='App-header'>
         <img src={logo} className='App-logo' alt='logo' />
         <p>
@@ -17,10 +40,6 @@ function App() {
         >
           Learn React
         </a>
-        testing commit
+        themeing commit
       </header>
-    </div>
-  );
-}
-
-export default App;
+    </div> */

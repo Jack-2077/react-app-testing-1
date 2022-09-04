@@ -1,38 +1,117 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body,
+html {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  --bg-color: #0d1c1c;
+  --sub-color: #ff6600;
+  --text-color: #ffffff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+  overflow-x: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--bg-color);
+  color: var(--sub-color);
+  font-family: 'Roboto Mono', monospace;
+  font-size: 18px;
 }
 
-.App-header {
-  background-color: #282c34;
+.container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.container > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+}
+.currentTheme:hover {
+  color: var(--text-color);
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.currentTheme:hover svg {
+  fill: var(--text-color);
+}
+svg:hover {
+  cursor: pointer;
+  fill: var(--text-color);
+}
+
+.container article {
+  padding: 2em;
+  max-width: 1250px;
+}
+
+.mainContainer {
+  font-size: 1em;
+  width: 100%;
+}
+svg {
+  vertical-align: middle;
+  fill: var(--sub-color);
+  height: 20px;
+}
+
+.mainContainer p {
+  text-transform: lowercase;
+  color: var(--sub-color);
+  font-size: 1.5em;
+  font-variant: no-common-ligatures;
+  line-height: 1em;
+  margin: 0.25em;
+}
+
+.themeListContainer {
+  background: var(--bg-color);
+  border-radius: 0.5rem;
+  width: 700px;
+}
+
+.themeListContainer .themeList {
+  cursor: pointer;
+  display: block;
+  display: grid;
+  max-height: calc(100vh - 13rem);
+  overflow-y: scroll;
+  user-select: none;
+}
+
+.theme {
+  color: var(--sub-color);
+  font-size: 0.75rem;
+  line-height: 0.75rem;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.05s ease 0s;
+}
+
+.theme div {
+  pointer-events: none;
+}
+
+.theme:hover {
+  background-color: var(--text-color);
 }
