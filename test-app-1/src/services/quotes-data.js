@@ -1,39 +1,3 @@
-const quotes2 = [
-  {
-    text: 'You have the power to heal your life, and you need to know that.',
-    id: 1,
-  },
-  {
-    text: "They don't know that we know they know we know.",
-    id: 2,
-  },
-  {
-    text: "Don't it make you sad to know that life is more than who you are?",
-    id: 3,
-  },
-  {
-    text: "Leave something for someone but don't leave someone for something.",
-
-    id: 4,
-  },
-  {
-    text: 'The people with ideas have no power and the people with power have no ideas.',
-    id: 5,
-  },
-  {
-    text: 'You must take life the way it comes at you and make the best of it.',
-    id: 6,
-  },
-  {
-    text: "If you don't know what you want, how are you going to know when you get it?",
-    id: 7,
-  },
-  {
-    text: 'If you have to ask, you will never know. If you know, you need only ask.',
-    id: 8,
-  },
-];
-
 const quotes = [
   {
     text: 'So that had become our thing, our saying. "I\'ll never like you, forever." I had promised to be her protector, her everything. But it came with a cost. Being a protector is the loneliest of talents.',
