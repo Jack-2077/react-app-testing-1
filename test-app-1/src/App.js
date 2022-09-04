@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { quotes } from './services/data-svc';
+import { themes, theme_list, quotes } from './services';
 import './App.css';
 
 import { ReactComponent as PaletteIcon } from './palette.svg';
@@ -11,57 +11,7 @@ function pickRandomeQuote() {
   return item;
 }
 
-const themes = [
-  '8008',
-  'tron',
-  'check',
-  'flex',
-  '8008',
-  'tron',
-  'check',
-  'flex',
-  '8008',
-  'tron',
-  'check',
-  'flex',
-  '8008',
-  'tron',
-  'check',
-  'flex',
-  '8008',
-  'tron',
-  'check',
-  'flex',
-  '8008',
-  'tron',
-  'check',
-  'flex',
-  '8008',
-  'tron',
-  'check',
-  'flex',
-  '8008',
-  'tron',
-  'check',
-  'flex',
-  '8008',
-  'tron',
-  'check',
-  'flex',
-  '8008',
-  'tron',
-  'check',
-  'flex',
-  '8008',
-  'tron',
-  'check',
-  'flex',
-  '8008',
-  'tron',
-  'check',
-  'flex',
-];
-function ThemeList({ closeModal }) {
+function ThemeList({ closeModal, changeTheme }) {
   useEffect(() => {
     const close = (e) => {
       if (e.key === 'Escape') {
@@ -70,14 +20,20 @@ function ThemeList({ closeModal }) {
     };
     window.addEventListener('keydown', close);
     return () => window.removeEventListener('keydown', close);
-  }, []);
+  }, [closeModal]);
 
   return (
     <div className='wrapper'>
       <div className='themeListContainer'>
         <div className='themeList'>
-          {themes.map((item) => (
-            <div className='theme'>{item}</div>
+          {theme_list.map((item) => (
+            <div
+              className='theme'
+              onMouseOver={() => changeTheme(item)}
+              onClick={() => changeTheme(item)}
+            >
+              {item}
+            </div>
           ))}
         </div>
       </div>
@@ -88,16 +44,38 @@ function ThemeList({ closeModal }) {
 function App() {
   const [quote, setQuote] = useState(pickRandomeQuote().text);
   const [modal, setModal] = useState(false);
+  const [theme, setTheme] = useState('tron_orange');
+
+  const toggleTheme = (selectedTheme) => {
+    setTheme(selectedTheme);
+  };
 
   const toggleModal = () => setModal(!modal);
+
+  useEffect(() => {
+    document.documentElement.style.setProperty(
+      '--bg-color',
+      themes[theme].bgColor
+    );
+    document.documentElement.style.setProperty(
+      '--sub-color',
+      themes[theme].subColor
+    );
+    document.documentElement.style.setProperty(
+      '--text-color',
+      themes[theme].textColor
+    );
+  }, [theme]);
 
   return (
     <div className='container'>
       <div>
         <div className='currentTheme' onClick={toggleModal}>
           <PaletteIcon />
-          <span>Tron Orange</span>
-          {modal && <ThemeList closeModal={toggleModal} />}
+          <span>{theme}</span>
+          {modal && (
+            <ThemeList closeModal={toggleModal} changeTheme={toggleTheme} />
+          )}
         </div>
         <article>
           <p>{quote}</p>

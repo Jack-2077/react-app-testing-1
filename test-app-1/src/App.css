@@ -17,7 +17,7 @@ html {
   overflow-x: hidden;
 }
 
-body {
+:root {
   --bg-color: #0d1c1c;
   --sub-color: #ff6600;
   --text-color: #ffffff;
@@ -107,10 +107,6 @@ svg:hover {
   line-height: 0.75rem;
   padding: 0.5rem 1rem;
   transition: background-color 0.05s ease 0s;
-}
-
-.theme div {
-  pointer-events: none;
 }
 
 .theme:hover {
