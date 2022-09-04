@@ -50,8 +50,9 @@ body {
 }
 
 .container article {
-  padding: 2em;
+  padding: 0 2em;
   max-width: 1250px;
+  height: 200px;
 }
 
 svg {
@@ -97,11 +98,19 @@ svg:hover {
   .themeListContainer {
     width: 600px !important;
   }
+
+  .container article {
+    height: 230px;
+  }
 }
 
 @media only screen and (max-width: 600px) {
   .themeListContainer {
     width: 500px !important;
+  }
+
+  .container article {
+    height: 290px;
   }
 }
 
@@ -109,11 +118,19 @@ svg:hover {
   .themeListContainer {
     width: 400px !important;
   }
+
+  .container article {
+    height: 390px;
+  }
 }
 
 @media only screen and (max-width: 400px) {
   .themeListContainer {
     width: 300px !important;
+  }
+
+  .container article {
+    height: 450px;
   }
 }
 
