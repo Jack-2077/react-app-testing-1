@@ -61,7 +61,17 @@ const themes = [
   'check',
   'flex',
 ];
-function ThemeList() {
+function ThemeList({ closeModal }) {
+  useEffect(() => {
+    const close = (e) => {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+    };
+    window.addEventListener('keydown', close);
+    return () => window.removeEventListener('keydown', close);
+  }, []);
+
   return (
     <div className='wrapper'>
       <div className='themeListContainer'>
@@ -87,7 +97,7 @@ function App() {
         <div className='currentTheme' onClick={toggleModal}>
           <PaletteIcon />
           <span>Tron Orange</span>
-          {modal && <ThemeList />}
+          {modal && <ThemeList closeModal={toggleModal} />}
         </div>
         <article>
           <p>{quote}</p>
