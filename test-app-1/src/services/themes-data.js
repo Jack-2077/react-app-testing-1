@@ -19,20 +19,20 @@ const themes = {
     subColor: '#99947f',
     textColor: '#080909',
   },
-  after_dark: {
-    bgColor: '#1b1d36',
-    subColor: '#99d6ea',
-    textColor: '#e1e7ec',
+  blueberry_light: {
+    bgColor: '#dae0f5',
+    subColor: '#92a4be',
+    textColor: '#678198',
   },
-  tron_orange: {
-    bgColor: '#0d1c1c',
-    subColor: '#ff6600',
-    textColor: '#ffffff',
+  blueberry_dark: {
+    bgColor: '#212b42',
+    subColor: '#5c7da5',
+    textColor: '#91b4d5',
   },
-  laser: {
-    bgColor: '#221b44',
-    subColor: '#b82356',
-    textColor: '#dbe7e8',
+  evil_eye: {
+    bgColor: '#0084c2',
+    subColor: '#01589f',
+    textColor: '#171718',
   },
   magic_girl: {
     bgColor: '#ffffff',
@@ -43,6 +43,26 @@ const themes = {
     bgColor: '#f35588',
     subColor: '#94294c',
     textColor: '#f0e9ec',
+  },
+  after_dark: {
+    bgColor: '#1b1d36',
+    subColor: '#99d6ea',
+    textColor: '#e1e7ec',
+  },
+  blue_dolphin: {
+    bgColor: '#003950',
+    subColor: '#00e4ff',
+    textColor: '#82eaff',
+  },
+  tron_orange: {
+    bgColor: '#0d1c1c',
+    subColor: '#ff6600',
+    textColor: '#ffffff',
+  },
+  laser: {
+    bgColor: '#221b44',
+    subColor: '#b82356',
+    textColor: '#dbe7e8',
   },
   red_samurai: {
     bgColor: '#84202c',
