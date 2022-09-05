@@ -65,7 +65,7 @@ const quotes = [
 function pickRandomeQuote() {
   const randomIndex = Math.floor(Math.random() * quotes.length);
   const item = quotes[randomIndex];
-  return item;
+  return item.text;
 }
 
 export default pickRandomeQuote;

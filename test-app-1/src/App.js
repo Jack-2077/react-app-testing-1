@@ -7,7 +7,7 @@ import { ReactComponent as PaletteIcon } from './palette.svg';
 import { ReactComponent as RestartIcon } from './restart.svg';
 
 function App() {
-  const [quote, setQuote] = useState(pickRandomeQuote().text);
+  const [quote, setQuote] = useState(pickRandomeQuote());
   const [modal, setModal] = useState(false);
   const [theme, setTheme] = useState('tron_orange');
 
@@ -18,18 +18,12 @@ function App() {
   const toggleModal = () => setModal(!modal);
 
   useEffect(() => {
-    document.documentElement.style.setProperty(
-      '--bg-color',
-      themes[theme].bgColor
-    );
-    document.documentElement.style.setProperty(
-      '--sub-color',
-      themes[theme].subColor
-    );
-    document.documentElement.style.setProperty(
-      '--text-color',
-      themes[theme].textColor
-    );
+    const root = document.querySelector(':root');
+    root.style.setProperty('--bg-color', themes[theme].bgColor);
+
+    root.style.setProperty('--sub-color', themes[theme].subColor);
+
+    root.style.setProperty('--text-color', themes[theme].textColor);
   }, [theme]);
 
   return (
@@ -46,7 +40,7 @@ function App() {
           <p>{quote}</p>
         </article>
         <div>
-          <RestartIcon onClick={() => setQuote(pickRandomeQuote().text)} />
+          <RestartIcon onClick={() => setQuote(pickRandomeQuote())} />
         </div>
       </div>
     </div>
