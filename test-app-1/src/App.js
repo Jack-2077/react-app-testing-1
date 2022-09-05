@@ -1,21 +1,18 @@
-import { useState, useEffect } from 'react';
-import ThemeList from './ThemeList';
+import { useState, useEffect, useCallback } from 'react';
+import { Theme, Quote, GetNewQuote } from './components';
 import { themes, pickRandomeQuote } from './services';
 import './App.css';
-
-import { ReactComponent as PaletteIcon } from './palette.svg';
-import { ReactComponent as RestartIcon } from './restart.svg';
 
 function App() {
   const [quote, setQuote] = useState(pickRandomeQuote());
   const [modal, setModal] = useState(false);
   const [theme, setTheme] = useState('tron_orange');
 
-  const toggleTheme = (selectedTheme) => {
+  const toggleTheme = useCallback((selectedTheme) => {
     setTheme(selectedTheme);
-  };
+  }, []);
 
-  const toggleModal = () => setModal(!modal);
+  const toggleModal = useCallback(() => setModal(!modal), [modal]);
 
   useEffect(() => {
     const root = document.querySelector(':root');
@@ -29,19 +26,14 @@ function App() {
   return (
     <div className='container'>
       <div>
-        <div className='currentTheme' onClick={toggleModal}>
-          <PaletteIcon />
-          <span>{theme}</span>
-          {modal && (
-            <ThemeList closeModal={toggleModal} changeTheme={toggleTheme} />
-          )}
-        </div>
-        <article>
-          <p>{quote}</p>
-        </article>
-        <div>
-          <RestartIcon onClick={() => setQuote(pickRandomeQuote())} />
-        </div>
+        <Theme
+          toggleModal={toggleModal}
+          toggleTheme={toggleTheme}
+          theme={theme}
+          modal={modal}
+        />
+        <Quote quote={quote} />
+        <GetNewQuote setQuote={setQuote} />
       </div>
     </div>
   );
