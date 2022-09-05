@@ -62,4 +62,10 @@ const quotes = [
   },
 ];
 
-export default quotes;
+function pickRandomeQuote() {
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+  const item = quotes[randomIndex];
+  return item;
+}
+
+export default pickRandomeQuote;

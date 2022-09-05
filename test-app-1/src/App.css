@@ -33,6 +33,7 @@ body {
   color: var(--sub-color);
   font-family: 'Roboto Mono', monospace;
   font-size: 18px;
+  user-select: none;
 }
 
 .container {

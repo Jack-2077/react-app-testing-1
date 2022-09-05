@@ -1,45 +1,10 @@
 import { useState, useEffect } from 'react';
-import { themes, theme_list, quotes } from './services';
+import ThemeList from './ThemeList';
+import { themes, pickRandomeQuote } from './services';
 import './App.css';
 
 import { ReactComponent as PaletteIcon } from './palette.svg';
 import { ReactComponent as RestartIcon } from './restart.svg';
-
-function pickRandomeQuote() {
-  const randomIndex = Math.floor(Math.random() * quotes.length);
-  const item = quotes[randomIndex];
-  return item;
-}
-
-function ThemeList({ closeModal, changeTheme }) {
-  useEffect(() => {
-    const close = (e) => {
-      if (e.key === 'Escape') {
-        closeModal();
-      }
-    };
-    window.addEventListener('keydown', close);
-    return () => window.removeEventListener('keydown', close);
-  }, [closeModal]);
-
-  return (
-    <div className='wrapper'>
-      <div className='themeListContainer'>
-        <div className='themeList'>
-          {theme_list.map((item) => (
-            <div
-              className='theme'
-              onMouseOver={() => changeTheme(item)}
-              onClick={() => changeTheme(item)}
-            >
-              {item}
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
 
 function App() {
   const [quote, setQuote] = useState(pickRandomeQuote().text);
