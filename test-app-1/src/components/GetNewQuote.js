@@ -4,10 +4,7 @@ import { ReactComponent as RestartIcon } from '../icons/restart.svg';
 
 const GetNewQuote = ({ setQuote }) => {
   return (
-    <RestartIcon
-      onClick={() => setQuote(pickRandomeQuote())}
-      data-testid='get-new-quote'
-    />
+    <RestartIcon onClick={() => setQuote(pickRandomeQuote())} role='button' />
   );
 };
 
