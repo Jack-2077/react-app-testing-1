@@ -1,6 +1,6 @@
 const Quote = ({ quote }) => {
   return (
-    <article role='textContent'>
+    <article>
       <p>{quote}</p>
     </article>
   );

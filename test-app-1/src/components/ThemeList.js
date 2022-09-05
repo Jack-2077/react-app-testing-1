@@ -5,7 +5,6 @@ export default function ThemeList({ closeModal, changeTheme }) {
   useEffect(() => {
     const close = (e) => {
       if (e.key === 'Escape') {
-        console.log('heyo-2');
         closeModal();
       }
     };
@@ -16,13 +15,14 @@ export default function ThemeList({ closeModal, changeTheme }) {
   return (
     <div className='wrapper'>
       <div className='themeListContainer'>
-        <div className='themeList' role='themeList'>
+        <div className='themeList' role='list'>
           {theme_list.map((item) => (
             <div
               key={item}
               className='theme'
               onMouseOver={() => changeTheme(item)}
               onClick={() => changeTheme(item)}
+              role='listitem'
             >
               {item}
             </div>
