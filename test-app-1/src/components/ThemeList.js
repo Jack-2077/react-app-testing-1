@@ -10,10 +10,10 @@ export default function ThemeList({ closeModal, changeTheme }) {
     };
     window.addEventListener('keydown', close);
     return () => window.removeEventListener('keydown', close);
-  }, [closeModal, changeTheme]);
+  }, [closeModal]);
 
   return (
-    <div className='wrapper'>
+    <div className='wrapper' data-testid='outside-modal'>
       <div className='themeListContainer'>
         <div className='themeList' role='list'>
           {theme_list.map((item) => (
