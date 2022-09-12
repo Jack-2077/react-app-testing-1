@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { GetNewQuote } from '../components';
 
-test('set new quote on click', () => {
+test('trigger on click function', () => {
   const setQuote = jest.fn();
   render(<GetNewQuote setQuote={setQuote} />);
 
